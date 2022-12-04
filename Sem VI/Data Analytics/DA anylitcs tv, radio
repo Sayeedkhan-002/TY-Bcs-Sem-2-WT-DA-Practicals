@@ -1,0 +1,53 @@
+import pandas as pd 
+import numpy as np  
+import matplotlib.pyplot as plt 
+import random
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+fromsklearn.metricsimportr2_score,mean_squared_error
+ID=random.sample(range(0,500),500)
+TV=random.sample(range(200,800),500)
+Radio=random.sample(range(100,900),500)
+Newspaper=random.sample(range(100,600),500)
+Sales=random.sample(range(100,900),500)
+data=list(zip(ID,TV,Radio,Newspaper,Sales))
+df=pd.DataFrame(data,columns=['ID','TV','Radio','Newspaper','Sales'])
+print(df)
+X = np.array(df[['TV']])
+#Store‘TV’column as a numpy array into ‘X’ variable
+y = np.array(df[['Sales']])
+#Store ‘Sales’ column as a numpy array into ‘y’ variable
+print (X.shape) #Vewing the shape of X
+print (y.shape) #Vewing the shape of y
+plt.scatter(X,y,color="red") #Plot a graph X vs y
+plt.title('TVvsSales') #Title of the graph as'TV vs Sales'
+plt.xlabel('TV') #X label as'TV'
+plt.ylabel('Sales') #y label as'Sales'
+plt.show()
+#Splitting our Data set in Dependent and Independent variables.
+#Spliting into train & test dataset 
+#Here we split our ‘X’ and ‘y’ dataset into ‘X_train’,‘X_test’and‘y_train’,‘y_test’.
+#Here we take 30% data as test data set and remaining as train data set. We take the random_state value as 15 for our better prediction.
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.30,random_state=15)
+regressor=LinearRegression()#Creatingaregressor
+regressor.fit(X_train,y_train)#Fitingthedatasetintothemodel
+plt.scatter(X_test,y_test,color="green")#PlotagraphwithX_testvsy_test
+plt.plot(X_train,regressor.predict(X_train),color="red",linewidth=3)#Regressiorlineshowing
+plt.title('Regression(TestSet)')
+plt.xlabel('TV')
+plt.ylabel('Sales')
+plt.show()
+plt.scatter(X_train,y_train,color="blue")
+#PlotagraphwithX_trainvsy_train
+plt.plot(X_train,regressor.predict(X_train),color="red",linewidth=3)
+#Regressiorlineshowing
+plt.title('Regression(trainingSet)')
+plt.xlabel('TV')
+plt.ylabel('Sales')
+plt.show()y_pred=regressor.predict(X_test)
+print('R2score:%.2f'%r2_score(y_test,y_pred))#PrinitingR2Score
+print('MeanError:',mean_squared_error(y_test,y_pred))#Prinitingthemeanerror
+defTV_price(tv):
+result=regressor.predict(np.array(tv).reshape(1,-1))return(result[0,0])
+TV_unit=int(input('EnternumberofTVs:'))
+print('This TV Price will be : ',int (TV_price(TV_unit))*10,'₹')

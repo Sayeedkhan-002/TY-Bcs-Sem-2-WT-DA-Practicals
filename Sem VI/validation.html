@@ -1,0 +1,64 @@
+<html>
+     <head>
+	  <script>
+	       function validateUsernamePassword(this_form)
+	       {
+		    var UserName=this_form.username.value;
+		    var pass1=this_form.password1.value;
+		    var pass2=this_form.password2.value;
+		    if(UserName=='')
+		    {
+			 alert("Please enter username");
+			 this_form.username.focus();
+			 return false;
+		    }
+		    if(UserName.length<6)
+		    {
+			 alert("Username must be atleast of 6 characters");
+			 this_form.username.focus();
+			 return false;
+		    }
+		    if(pass1=='')
+		    {
+			 alert("Please enter password");
+			 this_form.password1.focus();
+			 return false;
+		    }
+		    if(pass2=='')
+		    {
+			 alert("Please enter password");
+			 this_form.password2.focus();
+			 return false;
+		    }
+		    if(pass1!=pass2)
+		    {
+			 alert("Password Mismatch");
+			 return false;
+		    }
+		    if(pass1.length<8)
+		    {
+			 alert("Password must be atleast of 8 characters");
+			 this_form.password1.focus();
+			 return false;
+		    }
+		    if(pass2.length<8)
+		    {
+			 alert("Password must be atleast of 8 characters");
+			 this_form.password2.focus();
+			 return false;
+		    }
+		    return true;
+	       }
+	  </script>
+     </head>
+     <body>
+	  <form action="#" onsubmit="return validateUsernamePassword(this)" method=post>
+	  UserName:<input type=text name=username><br>
+	  Password:<input type=password name=password1><br>
+	  Re-enter Password:<input type=password name=password2><br>
+	  <input type=submit value="Submit">
+	  <input type=reset value="Reset">
+	  </form>
+	
+</body>
+</html>

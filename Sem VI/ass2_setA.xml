@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="item.css"?>
+<Items>
+<Item>
+<ItemName>Monitor</ItemName>
+<Itemprice>11000</Itemprice>
+<Quantity>10</Quantity>
+</Item>
+<Item>
+<ItemName>Keyboard</ItemName>
+<Itemprice>2400</Itemprice>
+<Quantity>10</Quantity>
+</Item>
+<Item>
+<ItemName>Mouse</ItemName>
+<Itemprice>400</Itemprice>
+<Quantity>15</Quantity>
+</Item>
+<Item>
+<ItemName>CPU</ItemName>
+<Itemprice>25000</Itemprice>
+<Quantity>12</Quantity>
+</Item>
+<Item>
+<ItemName>Printer</ItemName>
+<Itemprice>4500</Itemprice>
+<Quantity>8</Quantity>
+</Item>
+</Items>

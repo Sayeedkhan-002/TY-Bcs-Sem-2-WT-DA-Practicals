@@ -1,0 +1,31 @@
+<?xml version ="1.0" encoding ="UTF-8"?>
+<?xml-stylesheet type="text/css" href= "seta.css"?>
+<Iteminfo>
+<Item>
+<ItemName>Monitor</ItemName>
+<ItemPrice>12000</ItemPrice>
+<Quantity>23</Quantity>
+</Item>
+<Item>
+<ItemName>CPU</ItemName>
+<ItemPrice>14000</ItemPrice>
+<Quantity>23</Quantity>
+</Item>
+<Item>
+<ItemName>Mouse</ItemName>
+<ItemPrice>1000</ItemPrice>
+<Quantity>21</Quantity>
+</Item>
+
+<Item>
+<ItemName>Speaker</ItemName>
+<ItemPrice>12000</ItemPrice>
+<Quantity>28</Quantity>
+</Item>
+<Item>
+<ItemName>keyboard</ItemName>
+<ItemPrice>12000</ItemPrice>
+<Quantity>23</Quantity>
+</Item>
+</Iteminfo>
+

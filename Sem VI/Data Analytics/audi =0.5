@@ -1,0 +1,21 @@
+import pandas as pd
+from mlxtend.frequent_patterns import apriori,association_rules
+from mlxtend.preprocessing import TransactionEncoder
+## Custom Data
+transactions = [["BMW","Ferrari"],
+["Mercedes","RollsRoyace","Mercedes"],
+["Audi", "RollsRoyace","BMW","Ferrari"],
+["Ferrari", "Suzuki","BMW","RollsRoyace","Mercedes"],
+["MG", "Suzuki", "Honda","RollsRoyace"]]
+## Read the data, encode the data
+te=TransactionEncoder()
+te_array=te.fit(transactions).transform(transactions)
+df=pd.DataFrame(te_array, columns=te.columns_)
+print(df);
+## Find the frequent itemsets
+freq_items = apriori(df, min_support = 0.2, use_colnames = True)
+print(freq_items);
+## Generate the association rules
+rules = association_rules(freq_items, metric ='support', min_threshold=0.05)
+rules = rules.sort_values(['support', 'confidence'], ascending =[False,False])
+print(rules)

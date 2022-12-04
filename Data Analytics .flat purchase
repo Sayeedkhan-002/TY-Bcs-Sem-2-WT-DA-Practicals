@@ -1,0 +1,60 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import random
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score,mean_squared_error
+ID=random.sample(range(0,500),500)
+Flat=random.sample(range(200,800),500)
+Houses=random.sample(range(100,900),500)
+Purchases=random.sample(range(100,600),500)
+data=list(zip(ID,Flat,Houses,Purchases))
+df_realestate=pd.DataFrame(data,columns=['ID','Flat','Houses','Purchases'])
+print(df_realestate)
+X = np.array(df_realestate[['Flat']])
+# Store‘Flat’column as a numpy array into ‘X’ variable
+y = np.array(df_realestate[['Purchases']])
+# Store ‘Purchases’ column as a numpy array into ‘y’ variable
+print(X.shape) # Vewing the shape of X
+print(y.shape) # Vewing the shape of y
+plt.scatter(X,y,color="red")
+plt.title('Flat vs Purchases')
+plt.xlabel('Flat')
+plt.ylabel('Purchases')
+plt.show()
+# Plot a graph X vs y
+#Title of the graph as ‘Flat vs Purchases‘
+# X label as 'Flat'
+# y label as 'Purchases'
+# Splitting our Data set in Dependent and Independent variables.
+# Spliting into train & test dataset# Here we split our ‘X’ and ‘y’ dataset into ‘X_train’, ‘X_test’ and ‘y_tr
+ain’, ‘y_test’.
+# Here we take 25% data as test dataset and remaining as train dataset. We
+take the random_state value as 15 for our better prediction.
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size = 0.25,rand
+om_state=15)
+regressor = LinearRegression()
+regressor.fit(X_train,y_train)
+# Creating a regressor
+# Fiting the dataset into the model
+plt.scatter(X_test,y_test,color="green") # Plot a graph with X_test vs y_t
+est
+plt.plot(X_train,regressor.predict(X_train),color="red",linewidth=3) # Reg
+ressior line showing
+plt.title('Regression(Test Set)')
+plt.xlabel('Flat')
+plt.ylabel('Purchases')
+plt.show()
+plt.scatter(X_train,y_train,color="blue") # Plot a graph with X_train vs y
+_train
+plt.plot(X_train,regressor.predict(X_train),color="red",linewidth=3) # Reg
+ressior line showing
+plt.title('Regression(training Set)')
+plt.xlabel('Flat')
+plt.ylabel('Purchases')
+plt.show()
+y_pred = regressor.predict(X_test)
+print('R2 score: %.2f' % r2_score(y_test,y_pred)) # Priniting R2 Score
+print('Mean Error :',mean_squared_error(y_test,y_pred)) # Priniting the me
+an error

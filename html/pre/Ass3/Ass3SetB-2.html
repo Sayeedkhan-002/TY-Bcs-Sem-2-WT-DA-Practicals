@@ -1,0 +1,31 @@
+<!--  Write a PHP script for the following: Design a form having a text box and a drop down list containing any 3 separators(e.g. #, |, %, @, ! or comma) accept a strings from the user and also a separator. 
+a. Split The string into separate words using the given separator. 
+b. Replace all the occurrences of separator in the given string with some other separator.
+ c. Find the last word in the given string(Use strrstr() function). 
+-->
+
+<html>
+<body>
+<form allign=left action='http://localhost/Ass3/Ass3SetB-2.php' method=post>
+<pre>
+Enter 1st String:<input type='text' name='str1'><br>
+Select any separator:
+<select name=sep>
+   <option> | </option>
+     <option> @ </option>
+       <option> % </option>
+</select>
+<br>
+Enter separator to be replaced:<input type='text' name='sep_repl'><br>
+                                                                                                                       
+<input type='radio' name="ch" value=1>  Split The string into separate words using the given separator.
+<input type='radio' name="ch" value=2> Replace all the occurrences of separator in the given string with some other separator.
+<input type='radio' name="ch" value=3>  Find the last word in the given string
+                                                                                  
+<input type=submit value=Ok>    <input type=reset value=Cancel> 
+
+</pre>
+</form>
+</body>
+
+</html>
